@@ -15,7 +15,7 @@
   <img src="https://img.shields.io/badge/JWT-323330?style=for-the-badge&logo=json-web-tokens&logoColor=pink" height="30px"/>
   
 </div>
-# Table of Contents
+<h1> Table of Contents </h1>
 
 - [Getting Started](#getting-started)
   - [Models](#models)

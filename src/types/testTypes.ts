@@ -6,5 +6,6 @@ export interface ItestInput {
     name: string,
     pdfUrl: string,
     category: string,
+    discipline: string
     teacher: string
 }

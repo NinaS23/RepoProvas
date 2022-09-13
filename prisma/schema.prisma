@@ -8,12 +8,12 @@ datasource db {
 }
 
 model disciplines {
-  id                  Int                   @id @default(autoincrement())
-  name                String                @unique
-  termId              Int
-  createdAt           DateTime              @default(now()) @db.Timestamp(6)
-  terms               terms                 @relation(fields: [termId], references: [id], onDelete: NoAction, onUpdate: NoAction)
-  teachersDisciplines teachersDisciplines[]
+  id                 Int                  @id @default(autoincrement())
+  name               String               @unique
+  termId             Int
+  createdAt          DateTime             @default(now()) @db.Timestamp(6)
+  terms              terms                @relation(fields: [termId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  teacherDisciplines teacherDisciplines[]
 }
 
 model terms {
@@ -38,29 +38,28 @@ model categories {
 }
 
 model teachers {
-  id                  Int                   @id @default(autoincrement())
-  name                String                @unique
-  createdAt           DateTime              @default(now()) @db.Timestamp(6)
-  teachersDisciplines teachersDisciplines[]
-}
-
-model teachersDisciplines {
-  id           Int         @id @default(autoincrement())
-  teachId      Int
-  disciplineId Int
-  createdAt    DateTime    @default(now()) @db.Timestamp(6)
-  disciplines  disciplines @relation(fields: [disciplineId], references: [id], onDelete: NoAction, onUpdate: NoAction)
-  teachers     teachers    @relation(fields: [teachId], references: [id], onDelete: NoAction, onUpdate: NoAction)
-  tests        tests[]
+  id                 Int                  @id @default(autoincrement())
+  name               String               @unique
+  createdAt          DateTime             @default(now()) @db.Timestamp(6)
+  teacherDisciplines teacherDisciplines[]
 }
 
 model tests {
-  id                   Int                 @id @default(autoincrement())
+  id                   Int        @id @default(autoincrement())
   name                 String
   pdfUrl               String
   categoryId           Int
   teachersDisciplineId Int
-  createdAt            DateTime            @default(now()) @db.Timestamp(6)
-  categories           categories          @relation(fields: [categoryId], references: [id], onDelete: NoAction, onUpdate: NoAction)
-  teachersDisciplines  teachersDisciplines @relation(fields: [teachersDisciplineId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  createdAt            DateTime   @default(now()) @db.Timestamp(6)
+  categories           categories @relation(fields: [categoryId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  teacherDisciplines  teacherDisciplines @relation(fields: [teachersDisciplineId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model teacherDisciplines {
+  id           Int         @id @default(autoincrement())
+  teacherId      Int
+  disciplineId Int
+  disciplines  disciplines @relation(fields: [disciplineId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  teachers     teachers    @relation(fields: [teacherId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+   tests        tests[]
 }

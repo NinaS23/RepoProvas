@@ -14,7 +14,7 @@ export async function insertUserData(user:TuserData) {
 }
 
 export async function findUserById(id: number) {
-  const result = await prisma.user.findUnique({
+  const result = await prisma.user.findFirst({
     where: { id }
   })
   return result;

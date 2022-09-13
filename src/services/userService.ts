@@ -56,3 +56,11 @@ async function createToken(user: user) {
     const token = Jwt.sign({ userId }, secretKey, config);
     return token;
 }
+
+
+export async function findUserById(id: number) {
+    const user = await userRepository.findUserById(id);
+    if (!user) throw errorTypes.notFoundError('User not found');
+  
+    return user;
+  }

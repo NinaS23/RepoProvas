@@ -12,3 +12,10 @@ export async function findUserName(email:string) {
 export async function insertUserData(user:TuserData) {
   await prisma.user.create({ data: user})
 }
+
+export async function findUserById(id: number) {
+  const result = await prisma.user.findUnique({
+    where: { id }
+  })
+  return result;
+}

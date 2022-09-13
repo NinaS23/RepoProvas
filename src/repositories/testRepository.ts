@@ -1,4 +1,8 @@
 import prisma from "../config/database";
-import { ItestInput } from "../types/testTypes";
+import { TtestsData } from "../types/testTypes";
 
 
+
+export async function insertTest(test:TtestsData) {
+    await prisma.tests.create({data:test})
+}

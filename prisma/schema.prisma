@@ -1,0 +1,60 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model disciplines {
+  id                  Int                   @id @default(autoincrement())
+  name                String                @unique
+  termId              Int
+  terms               terms                 @relation(fields: [termId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  teachersDisciplines teachersDisciplines[]
+}
+
+model terms {
+  id          Int           @id @default(autoincrement())
+  number      Int           @unique
+  disciplines disciplines[]
+}
+
+model user {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique @db.VarChar(100)
+  password  String
+  createdAt DateTime @default(now()) @db.Timestamp(6)
+}
+
+model categories {
+  id    Int     @id @default(autoincrement())
+  name  String  @unique
+  tests tests[]
+}
+
+model teachers {
+  id                  Int                   @id @default(autoincrement())
+  name                String                @unique
+  teachersDisciplines teachersDisciplines[]
+}
+
+model teachersDisciplines {
+  id           Int         @id @default(autoincrement())
+  teachId      Int
+  disciplineId Int
+  disciplines  disciplines @relation(fields: [disciplineId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  teachers     teachers    @relation(fields: [teachId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  tests        tests[]
+}
+
+model tests {
+  id                   Int                 @id @default(autoincrement())
+  name                 String
+  pdfUrl               String
+  categoryId           Int
+  teachersDisciplineId Int
+  categories           categories          @relation(fields: [categoryId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  teachersDisciplines  teachersDisciplines @relation(fields: [teachersDisciplineId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}

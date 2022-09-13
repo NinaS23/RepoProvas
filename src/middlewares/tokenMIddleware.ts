@@ -14,7 +14,7 @@ export async function tokenMiddleware(
   const authorization = req.headers['authorization'];
   if (!authorization) throw unauthorizedError('Missing authorization header');
 
-  const token = authorization?.replace("Bearer", "").trim();
+  const token = authorization.replace("Bearer", "").trim();
   if (!token) throw unauthorizedError('Missing token');
 
   try {

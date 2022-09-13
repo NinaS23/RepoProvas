@@ -59,7 +59,7 @@ npm start
 
 ## Routes 
 
-### [users](#users) _`/users`_
+### [users](#users) _`users`_
 
 - [sing-un](#---sing-up)
 - [Sign In](#---sign-in)

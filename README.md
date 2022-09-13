@@ -3,6 +3,13 @@
 	<img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/microsoft/310/memo_1f4dd.png">
 </div>
 
+
+<p align = "center">
+   <img src="https://img.shields.io/badge/author-NinaS23-4dae71?style=flat-square" />
+   <img src="https://img.shields.io/github/languages/count/NinaS23/repoProvas?color=4dae71&style=flat-square" />
+</p>
+
+
 <div align="center">
   <h3>Built With</h3>
 

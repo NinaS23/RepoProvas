@@ -52,7 +52,7 @@ npm start
 ### users model _`user`_
 
 - `id`: unique identifier for each user. 'serial primary key'
-- `email`: The user's email. An email may only be registered once. `text`
+- `email`: The user's email. can only be registered once. `text`
 - `password`: The user's password. `text`
 - `createdAt`: The date and time when the user was created. `timestamp`
 

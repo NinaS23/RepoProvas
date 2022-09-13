@@ -52,7 +52,7 @@ async function getCategory(category: string) {
 
 async function getTeacherDisciplinesId(teacherId: number, disciplineId: number) {
     const isTeacherDisciplineValid = await teacherDisciplinesRepository.getTeacherDisciplines(teacherId, disciplineId);
-    if(!isTeacherDisciplineValid) throw errorTypes.notFoundError("teacher does not teach this subject")
+    if(!isTeacherDisciplineValid) throw errorTypes.notFoundError("this teacher does not teach this subject")
     return isTeacherDisciplineValid;
 }
 

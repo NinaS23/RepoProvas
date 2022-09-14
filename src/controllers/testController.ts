@@ -8,3 +8,9 @@ export async function createTest(req:Request,res:Response) {
     const isCreated = await testService.createTest(test);
     res.status(httpsUtils.CREATED).send(isCreated);
 }
+
+export async function getTestsByGroupBy(req:Request,res:Response) {
+    const { groupBy } = req.query;
+    const getTestsByGroupBy = await testService.getTests(groupBy as string);
+    res.status(httpsUtils.OK).send(getTestsByGroupBy);
+}

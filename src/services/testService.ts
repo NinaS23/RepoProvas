@@ -32,6 +32,7 @@ async function getTeacherId(teacher: string) {
 
 async function getDisciplineId(discipline: string) {
     const isDisciplineExistent = await disciplineRepository.findDisciplineId(discipline);
+    console.log(isDisciplineExistent)
     if (!isDisciplineExistent) throw errorTypes.notFoundError("discipline does not exist");
     return isDisciplineExistent;
 }
@@ -56,3 +57,12 @@ async function getTeacherDisciplinesId(teacherId: number, disciplineId: number) 
     return isTeacherDisciplineValid;
 }
 
+export async function getTests(groupBy: string) {
+    if (groupBy === "disciplines") {
+        return await testRepository.findByDiscipline();
+    } else if (groupBy === "teachers") {
+        return await testRepository.findByTeacher();
+    } else {
+        throw errorTypes.notFoundError("query string invalid")
+    }
+}

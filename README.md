@@ -27,6 +27,7 @@
 - [Getting Started](#getting-started)
    -[Routes](#routes)
      - [users](#users)
+     - [tests](#tests)
    
 <!-- Getting Started -->
 

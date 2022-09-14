@@ -22,8 +22,7 @@
   <img src="https://img.shields.io/badge/JWT-323330?style=for-the-badge&logo=json-web-tokens&logoColor=pink" height="30px"/>
   
 </div>
-<h1> Table of Contents </h1>
-   
+
 <!-- Getting Started -->
 
 # Getting Started
@@ -60,8 +59,7 @@ npm start
 - [test]GET(#---tests)
 
 
-
-
+<!-- REQUESTS -->
 ### &nbsp; ☰ &nbsp; Request
 
 ###### Body _`/sign-up`_

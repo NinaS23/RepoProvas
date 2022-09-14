@@ -62,6 +62,6 @@ export async function getTests(groupBy: string) {
     } else if (groupBy === "teachers") {
         return await testRepository.findByTeacher();
     } else {
-        throw errorTypes.notFoundError("query string invalid")
+        throw errorTypes.notFoundError("query string is invalid! The query string should be 'disciplines' or 'teachers")
     }
 }

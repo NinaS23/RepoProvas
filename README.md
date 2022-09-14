@@ -90,7 +90,7 @@ npm start
 }
 ```
 
-###### Body _`/test`_
+###### Body _`/test`_ (autenticada)
 
 
 ```json

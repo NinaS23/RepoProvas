@@ -25,8 +25,6 @@
 <h1> Table of Contents </h1>
 
 - [Getting Started](#getting-started)
-  - [Models](#models)
-    - [ users ](#users-model-user)
    -[Routes](#routes)
      - [users](#users)
    
@@ -51,18 +49,6 @@ Finally, start the server:
 ```git
 npm start
 ```
-
-<!-- Models -->
-
-## Models
-
-### users model _`user`_
-
-- `id`: unique identifier for each user. 'serial primary key'
-- `email`: The user's email. can only be registered once. `text`
-- `password`: The user's password. `text`
-- `createdAt`: The date and time when the user was created. `timestamp`
-
 
 ## Routes 
 

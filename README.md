@@ -49,14 +49,14 @@ npm start
 
 ### [users](#users) _`users`_
 
-- [sing-un]POST(#---sing-up) 
-- [Sign In]POST(#---sign-in)
+- POST _`/sign-up`_
+- POST _`/sign-in`_
 
 
 ### [tests](#tests) _`tests`_
 
-- [test]POST(#---test)
-- [test]GET(#---tests)
+- POST _`/test`_
+- GET _`/tests`_
 
 
 <!-- REQUESTS -->

@@ -58,6 +58,13 @@ npm start
 - [Sign In](#---sign-in)
 
 
+### [tests](#tests) _`tests`_
+
+- [test](#---test)
+
+
+
+
 ### &nbsp; ☰ &nbsp; Request
 
 ###### Body _`/sign-up`_
@@ -82,5 +89,17 @@ npm start
 }
 ```
 
+###### Body _`/test`_
+
+
+```json
+{
+  "name": "Prática CSS e HTML",
+  "pdfUrl": "https://github.com/NinaS23?tab=repositories",
+  "discipline":"HTML e CSS",
+  "category": "Projeto,Prática",
+  "teacher": "Diego Pinho"
+}
+```
 
 

@@ -23,11 +23,6 @@
   
 </div>
 <h1> Table of Contents </h1>
-
-- [Getting Started](#getting-started)
-   -[Routes](#routes)
-     - [users](#users)
-     - [tests](#tests)
    
 <!-- Getting Started -->
 
@@ -62,6 +57,7 @@ npm start
 ### [tests](#tests) _`tests`_
 
 - [test]POST(#---test)
+- [test]GET(#---tests)
 
 
 

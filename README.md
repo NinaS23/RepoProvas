@@ -89,7 +89,7 @@ npm start
 
 ```json
 {
-  "name": "Prática CSS e HTML",
+  "name": "Prática e Projeto sobre CSS e HTML",
   "pdfUrl": "https://github.com/NinaS23?tab=repositories",
   "discipline":"HTML e CSS",
   "category": "Projeto,Prática",

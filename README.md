@@ -54,13 +54,13 @@ npm start
 
 ### [users](#users) _`users`_
 
-- [sing-un](#---sing-up)
-- [Sign In](#---sign-in)
+- [sing-un]POST(#---sing-up) 
+- [Sign In]POST(#---sign-in)
 
 
 ### [tests](#tests) _`tests`_
 
-- [test](#---test)
+- [test]POST(#---test)
 
 
 

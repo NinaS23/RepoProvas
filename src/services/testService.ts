@@ -32,7 +32,6 @@ async function getTeacherId(teacher: string) {
 
 async function getDisciplineId(discipline: string) {
     const isDisciplineExistent = await disciplineRepository.findDisciplineId(discipline);
-    console.log(isDisciplineExistent)
     if (!isDisciplineExistent) throw errorTypes.notFoundError("discipline does not exist");
     return isDisciplineExistent;
 }

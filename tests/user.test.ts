@@ -21,7 +21,6 @@ describe("test route sing-in", () => {
 
     it("create user with the incorrect schema, should returns 422", async () => {
         const createdUser = factory.createUser(true);
-
         const result = await supertest(app).post("/sign-up").send(createdUser);
         console.log(result.statusCode)
         expect(result.statusCode).toBe(422);
@@ -29,6 +28,28 @@ describe("test route sing-in", () => {
     });
 
 });
+
+ 
+describe("test route sing-up", () => {
+    //tem so que mudar lá o email e vai 
+        it("login user with correct schema", async () => {
+            const user = factory.loginUser(false);
+            const result = await supertest(app).post("/sign-in").send(user);
+            console.log(result.statusCode)
+            expect(result.statusCode).toBe(200);
+            
+        });
+    
+         it("create user with the incorrect schema, should returns 422", async () => {
+            const user = factory.loginUser(true);
+    
+            const result = await supertest(app).post("/sign-in").send(user);
+            console.log(result.statusCode)
+            expect(result.statusCode).toBe(404);
+    
+        }); 
+    
+    });
 
 afterAll(async () => {
     await prisma.$disconnect();

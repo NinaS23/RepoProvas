@@ -1,7 +1,7 @@
 import { faker } from "@faker-js/faker";
 import { TuserData, IuserData } from "../../src/types/userTypes";
 
-const EMAIL_TEST = "anamaria@ia.com";
+const EMAIL_TEST = "margoyt@margot.com";
 const PASSWORD_TEST = "12345";
 
 export function createUser(random: boolean) {
@@ -21,14 +21,16 @@ export function createUser(random: boolean) {
 
 }
 
-export function loginUser(random: boolean = false) {
-    return random
-      ? {
+export function loginUser(random) {
+    if( random === true){
+         return  {
           email: faker.internet.email(),
           password: PASSWORD_TEST,
         }
-      : {
-          email: EMAIL_TEST,
-          password: PASSWORD_TEST,
-        };
+    } else {
+      return  {
+        email: EMAIL_TEST,
+        password: PASSWORD_TEST,
+      }
+    }
   }

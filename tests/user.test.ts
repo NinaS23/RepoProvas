@@ -13,7 +13,6 @@ describe("test route sing-in", () => {
 //tem so que mudar lá o email e vai 
     it("create user with the correct schema, should returns 201", async () => {
         const createdUser = factory.createUser(false);
-        console.log(createdUser)
         const result = await supertest(app).post("/sign-up").send(createdUser);
         expect(result.statusCode).toBe(201);
         
@@ -22,44 +21,34 @@ describe("test route sing-in", () => {
     it("create user with the incorrect schema, should returns 422", async () => {
         const createdUser = factory.createUser(true);
         const result = await supertest(app).post("/sign-up").send(createdUser);
-        console.log(result.statusCode)
         expect(result.statusCode).toBe(422);
 
     });
 
 });
 
- 
 describe("test route sing-up", () => {
    
         it("login user with correct schema", async () => {
             const user = factory.loginUser(2);
             const result = await supertest(app).post("/sign-in").send(user);
-            console.log(result.statusCode)
             expect(result.statusCode).toBe(200);
             
         });
     
          it("login user with wrong email, should returns 404", async () => {
             const user = factory.loginUser(1);
-    
             const result = await supertest(app).post("/sign-in").send(user);
-            console.log(result.statusCode)
             expect(result.statusCode).toBe(404);
     
         }); 
    
         it("login user with wrong password, should returns 401", async () => {
             const user = factory.loginUser(3);
-    
             const result = await supertest(app).post("/sign-in").send(user);
-            console.log(result.statusCode)
             expect(result.statusCode).toBe(401);
     
         }); 
-
-        
-    
     });
 
 afterAll(async () => {

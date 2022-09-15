@@ -11,7 +11,7 @@ beforeEach(async () => {
 });
 
 
-describe("test tests routes", () => {
+describe("test post test route", () => {
 
     it("should create a test when correct info returning 201", async () => {
       const createUserData = userFactory.createUser();
@@ -48,6 +48,10 @@ describe("test tests routes", () => {
       const wrongCreationForTest = await supertest(app).post("/test").send(inputContent).set("Authorization", `Bearer random`);
       expect(wrongCreationForTest.statusCode).toBe(401);
     });
+ 
+  });
+
+  describe("test get tests group by discplines or teachers", () => {
   
     it("send requeste with correct query and correct Headers group by disciplines", async () => {
       const createUserData = userFactory.createUser();

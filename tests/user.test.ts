@@ -31,8 +31,8 @@ describe("test route sing-in", () => {
 
  
 describe("test route sing-up", () => {
-    //tem so que mudar lá o email e vai 
-        it("login user with correct schema,should returns 422", async () => {
+   
+        it("login user with correct schema", async () => {
             const user = factory.loginUser(2);
             const result = await supertest(app).post("/sign-in").send(user);
             console.log(result.statusCode)
@@ -40,7 +40,7 @@ describe("test route sing-up", () => {
             
         });
     
-         it("login user with wrong email, should returns 422", async () => {
+         it("login user with wrong email, should returns 404", async () => {
             const user = factory.loginUser(1);
     
             const result = await supertest(app).post("/sign-in").send(user);

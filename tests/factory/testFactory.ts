@@ -9,11 +9,13 @@ export function createFakerTestData(random: boolean = false) {
           category: faker.random.word(),
           pdfUrl: faker.internet.url(),
           discipline: faker.random.word(),
+          teacher:  faker.random.word()
         }
       : <ItestInput>{
           name: faker.random.words(2),
           category: "Projeto",
           pdfUrl: faker.internet.url(),
-          discipline: "Humildade",
+          discipline: "JavaScript",
+          teacher: "Diego Pinho"
         };
   }

@@ -40,7 +40,7 @@ describe("test route sing-up", () => {
             
         });
     
-         it("login user with wrgon schema, should returns 422", async () => {
+         it("login user with wrong email, should returns 422", async () => {
             const user = factory.loginUser(1);
     
             const result = await supertest(app).post("/sign-in").send(user);
@@ -48,6 +48,17 @@ describe("test route sing-up", () => {
             expect(result.statusCode).toBe(404);
     
         }); 
+   
+        it("login user with wrong password, should returns 401", async () => {
+            const user = factory.loginUser(3);
+    
+            const result = await supertest(app).post("/sign-in").send(user);
+            console.log(result.statusCode)
+            expect(result.statusCode).toBe(401);
+    
+        }); 
+
+        
     
     });
 

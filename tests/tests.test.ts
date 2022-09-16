@@ -77,6 +77,20 @@ describe("test route POST /test", () => {
 
         });
 
+        it("get with the correct request and set headers , should return 200", async () => {
+            const user = factory.loginUserForTests();
+            const result = await supertest(app).post("/sign-in").send(user);
+            expect(result.statusCode).toBe(200);
+            const token = result.body.token;
+            expect(token).not.toBeNull();
+
+            const getTests = await supertest(app).get("/tests?groupBy=teachers").set("Authorization", `Bearer ${token}`);
+            expect(getTests.body).toBeInstanceOf(Array)
+            expect(getTests.statusCode).toBe(200);
+
+        });
+
+
         it("get with the incorrect request and set headers , should return 404", async () => {
            
             const user = factory.loginUserForTests();
@@ -97,7 +111,7 @@ describe("test route POST /test", () => {
             const token = result.body.token;
             expect(token).not.toBeNull();
 
-            const getTests = await supertest(app).get("/tests?groupBy=RANDOM_TEXT");
+            const getTests = await supertest(app).get("/tests?groupBy=disciplines");
             expect(getTests.statusCode).toBe(401);
 
         });

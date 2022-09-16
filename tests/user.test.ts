@@ -4,8 +4,8 @@ import supertest from "supertest";
 import * as factory from "./factory/userFactory";
 
 
- beforeEach(async () => {
-      prisma.$executeRaw`TRUNCATE TABLE "user"`
+ beforeAll(async () => {
+     prisma.$executeRaw`TRUNCATE TABLE user RESTART IDENTITY`;
 });
  
 describe("test route sing-in", () => {

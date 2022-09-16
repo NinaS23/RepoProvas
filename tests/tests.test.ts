@@ -5,8 +5,8 @@ import * as factory from "./factory/userFactory";
 import * as testFactory from "./factory/testFactory";
 
 
-beforeEach(async () => {
- await  prisma.$executeRaw`TRUNCATE TABLE "user"`
+beforeAll(async () => {
+     prisma.$executeRaw`TRUNCATE TABLE users RESTART IDENTITY`;
 });
 
 describe("test route POST /test", () => {

@@ -2,15 +2,14 @@ import app from "../src/app/app";
 import prisma from "../src/config/database";
 import supertest from "supertest";
 import * as factory from "./factory/userFactory";
-import { STATUS_CODES } from "http";
 
 
  beforeEach(async () => {
-    prisma.$executeRaw`TRUNCATE TABLE user RESTART IDENTITY CASCADE;`
+    prisma.$executeRaw`TRUNCATE TABLE user CASCADE;`
 });
  
 describe("test route sing-in", () => {
-//tem so que mudar lá o email e vai 
+
     it("create user with the correct schema, should returns 201", async () => {
         const createdUser = factory.createUser(false);
         const result = await supertest(app).post("/sign-up").send(createdUser);
@@ -24,6 +23,13 @@ describe("test route sing-in", () => {
         expect(result.statusCode).toBe(422);
 
     });
+
+    it("creating user with a existent email, should returns 409", async () => {
+        const createdUser = factory.createUser(false);
+        const result = await supertest(app).post("/sign-up").send(createdUser);
+        expect(result.statusCode).toBe(409);
+
+    }); 
 
 });
 
@@ -42,6 +48,7 @@ describe("test route sing-up", () => {
             expect(result.statusCode).toBe(404);
     
         }); 
+
    
         it("login user with wrong password, should returns 401", async () => {
             const user = factory.loginUser(3);

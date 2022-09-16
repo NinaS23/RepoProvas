@@ -1,4 +1,5 @@
-import prisma from '../src/config/database';
+import prisma from '../src/config/database'
+
 
 async function main() {
     const termsData = [
@@ -35,7 +36,7 @@ async function main() {
         { teacherId: 2, disciplineId: 6 }
     ]
 
-    await prisma.$connect();
+
     await prisma.terms.createMany({ data: termsData });
     await prisma.categories.createMany({ data: categoriesData });
     await prisma.teachers.createMany({ data: teachersData });

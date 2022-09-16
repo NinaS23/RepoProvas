@@ -4,8 +4,9 @@ import supertest from "supertest";
 import * as factory from "./factory/userFactory";
 import * as testFactory from "./factory/testFactory";
 
+
 beforeEach(async () => {
-    prisma.$executeRaw`TRUNCATE TABLE "user"`
+ await  prisma.$executeRaw`TRUNCATE TABLE "user"`
 });
 
 describe("test route POST /test", () => {

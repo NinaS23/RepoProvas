@@ -5,7 +5,7 @@ import * as factory from "./factory/userFactory";
 
 
  beforeEach(async () => {
-    prisma.$executeRaw`TRUNCATE TABLE "user"`
+      prisma.$executeRaw`TRUNCATE TABLE "user"`
 });
  
 describe("test route sing-in", () => {

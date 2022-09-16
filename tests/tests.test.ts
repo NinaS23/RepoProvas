@@ -10,7 +10,7 @@ beforeEach(async () => {
 
 describe("test route POST /test", () => {
 
-    it("send a test with the correct schema", async () => {
+    it("send a test with the correct schema, should returns 201", async () => {
         const createUserData = factory.createUserForTests();
         const createdUser = await supertest(app).post("/sign-up").send(createUserData);
         expect(createdUser.statusCode).toBe(201);
@@ -28,7 +28,7 @@ describe("test route POST /test", () => {
 
     });
 
-    it("send a test with the incorrect schema", async () => {
+    it("send a test with the incorrect schema, should returns 404", async () => {
        
 
         const user = factory.loginUserForTests();
@@ -45,7 +45,7 @@ describe("test route POST /test", () => {
     });
 
 
-    it("send a test without the Headers", async () => {
+    it("send a test without the Headers, should returns 401", async () => {
     
         const user = factory.loginUserForTests();
         const result = await supertest(app).post("/sign-in").send(user);

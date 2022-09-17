@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tsc",
+    "build": "npx tsc",
     "start": "node dist/src/server.js",
     "dev": "nodemon src/server.ts",
     "test": "dotenv -e .env.test prisma migrate dev && dotenv -e .env.test prisma db pull seed && dotenv -e .env.test jest -i --runInBand"

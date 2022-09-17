@@ -1,7 +1,7 @@
 import { faker } from "@faker-js/faker";
 import { TuserData, IuserData } from "../../src/types/userTypes";
 
-const EMAIL_TEST = "walle@cardCaptors.com";
+const EMAIL_TEST = "wallee@cardCaptors.com";
 const PASSWORD_TEST = "12345";
 
 export function createUser(random: boolean) {
@@ -24,7 +24,7 @@ export function createUser(random: boolean) {
 export function createUserForTests() {
   
     return <IuserData>{
-      email: "walle@hannars.com",
+      email: "walle@hannears.com",
       password: PASSWORD_TEST,
       passwordRef: PASSWORD_TEST
     }
@@ -34,7 +34,7 @@ export function createUserForTests() {
 
 export function loginUserForTests() {
   return <IuserData>{
-    email: "hana@hannas.com",
+    email: "walle@hannears.com",
     password: PASSWORD_TEST,
    
   }

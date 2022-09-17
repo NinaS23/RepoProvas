@@ -5,9 +5,6 @@ import * as factory from "./factory/userFactory";
 import * as testFactory from "./factory/testFactory";
 
 
-beforeAll(async () => {
-     prisma.$executeRaw`TRUNCATE TABLE users RESTART IDENTITY`;
-});
 
 describe("test route POST /test", () => {
 
